@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 
 
-
-  <!-- Google tag (gtag.js) -->
+ <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRFFSQ483L"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -20,1157 +19,1126 @@
 
 
 
+
+
   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PureGrain | Premium Organic Noodles & Artisan Pasta</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>NoodleCraft | Premium Artisan Organic Noodles & Whole-Food Pasta Matrix</title>
+    
+    <!-- External Typography & Iconography Assets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
     <style>
         /* ==========================================================================
-           1. ROOT VARIABLES & THEMING
+           1. MACRO THEME VARIABLES & CORE ROOT SETTINGS
            ========================================================================== */
         :root {
             --primary: #2E7D32;
             --primary-light: #4CAF50;
             --primary-dark: #1B5E20;
             --secondary: #8D6E63;
-            --accent: #FFB300;
-            --accent-hover: #FFA000;
-            --bg-light: #FAF8F2;
+            --secondary-light: #D7CCC8;
+            --secondary-dark: #4E342E;
+            --accent: #E65100;
+            --accent-glow: rgba(230, 81, 0, 0.15);
+            --bg-base: #FAF8F2;
+            --bg-surface: #FFFFFF;
             --bg-card: #FFFFFF;
-            --text-main: #2C3E50;
-            --text-muted: #7F8C8D;
-            --border-color: #E2E8F0;
-            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-            --shadow-md: 0 10px 20px rgba(0,0,0,0.08);
-            --shadow-lg: 0 20px 40px rgba(0,0,0,0.12);
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --bg-nav: rgba(255, 255, 255, 0.85);
+            --text-main: #1C2833;
+            --text-muted: #566573;
+            --text-on-primary: #FFFFFF;
+            --border-alpha: rgba(0, 0, 0, 0.08);
+            --border-heavy: #E2E8F0;
+            
+            /* Elevation System */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 12px 24px rgba(46, 125, 50, 0.06);
+            --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.08);
+            --shadow-accent: 0 10px 20px rgba(230, 81, 0, 0.2);
+            
+            /* Motion Dynamics */
+            --ease-elegant: cubic-bezier(0.16, 1, 0.3, 1);
+            --duration-sm: 0.2s;
+            --duration-md: 0.4s;
+            --duration-lg: 0.8s;
+            
+            /* Geometric Tolerances */
             --radius-sm: 8px;
             --radius-md: 16px;
-            --radius-lg: 24px;
+            --radius-lg: 32px;
+            --radius-full: 9999px;
         }
 
         [data-theme="dark"] {
-            --primary: #4CAF50;
-            --primary-light: #81C784;
+            --primary: #81C784;
+            --primary-light: #A5D6A7;
             --primary-dark: #2E7D32;
-            --secondary: #A1887F;
-            --accent: #FFCA28;
-            --bg-light: #121212;
-            --bg-card: #1E1E1E;
+            --secondary: #B0BEC5;
+            --secondary-light: #37474F;
+            --secondary-dark: #1A237E;
+            --accent: #FFB74D;
+            --accent-glow: rgba(255, 183, 77, 0.15);
+            --bg-base: #0F1410;
+            --bg-surface: #161D18;
+            --bg-card: #1E2620;
+            --bg-nav: rgba(22, 29, 24, 0.85);
             --text-main: #ECEFF1;
-            --text-muted: #B0BEC5;
-            --border-color: #333333;
-            --shadow-md: 0 10px 20px rgba(0,0,0,0.3);
-            --shadow-lg: 0 20px 40px rgba(0,0,0,0.4);
+            --text-muted: #90A4AE;
+            --border-alpha: rgba(255, 255, 255, 0.06);
+            --border-heavy: #2C3E2F;
+            
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.5);
         }
 
         /* ==========================================================================
-           2. BASE RESET & FONTS
+           2. UNIVERSAL RESET & ARCHITECTURAL UTILITIES
            ========================================================================== */
-        * {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            outline: none;
+        }
+
+        html {
             scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
         }
 
         body {
-            background-color: var(--bg-light);
+            background-color: var(--bg-base);
             color: var(--text-main);
-            transition: var(--transition);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 400;
+            line-height: 1.65;
             overflow-x: hidden;
-            line-height: 1.7;
+            transition: background-color var(--duration-md) var(--ease-elegant), color var(--duration-md) var(--ease-elegant);
         }
 
-        h1, h2, h3, h4, .brand-font {
-            font-family: 'Playfair Display', serif;
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Cinzel', serif;
             font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
         }
 
         a {
             text-decoration: none;
             color: inherit;
-            transition: var(--transition);
+            transition: all var(--duration-sm) var(--ease-elegant);
         }
 
-        ul {
-            list-style: none;
+        button {
+            cursor: pointer;
+            font-family: inherit;
+            background: none;
+            border: none;
+            transition: all var(--duration-sm) var(--ease-elegant);
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* ==========================================================================
-           3. REUSABLE UTILITIES & LAYOUTS
-           ========================================================================== */
-        .container {
-            max-width: 1300px;
+        /* Structural Enclosures */
+        .wrapper {
+            width: 100%;
+            max-width: 1440px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 48px;
         }
 
-        .section {
-            padding: 120px 0;
+        .section-padding {
+            padding: 140px 0;
             position: relative;
         }
 
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 70px auto;
-        }
+        .flex-center { display: flex; align-items: center; justify-content: center; }
+        .grid-layout-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 64px; align-items: center; }
+        .grid-layout-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .grid-layout-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 
-        .section-tag {
-            display: inline-block;
-            color: var(--primary);
-            font-weight: 600;
+        /* Modern UI Accents */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 16px;
+            font-size: 0.75rem;
+            font-weight: 700;
             text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
+            letter-spacing: 0.1em;
+            border-radius: var(--radius-full);
+            background: rgba(46, 125, 50, 0.08);
+            color: var(--primary);
+            border: 1px solid rgba(46, 125, 50, 0.15);
+            margin-bottom: 24px;
         }
 
-        .section-title {
-            font-size: 44px;
-            color: var(--primary-dark);
-            margin-bottom: 20px;
-        }
+        .heading-xl { font-size: 3.5rem; color: var(--text-main); margin-bottom: 24px; }
+        .heading-lg { font-size: 2.5rem; color: var(--text-main); margin-bottom: 20px; text-transform: capitalize; }
+        .heading-md { font-size: 1.5rem; color: var(--text-main); margin-bottom: 12px; }
+        .desc-text { color: var(--text-muted); font-size: 1.05rem; max-width: 680px; margin-bottom: 32px; }
 
-        [data-theme="dark"] .section-title {
-            color: var(--primary-light);
-        }
-
-        .section-desc {
-            color: var(--text-muted);
-            font-size: 16px;
-        }
-
-        .btn {
+        /* Interactive Buttons */
+        .btn-core {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 16px 36px;
+            padding: 18px 38px;
+            font-size: 0.95rem;
             font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            border: none;
-            gap: 10px;
+            letter-spacing: 0.05em;
+            border-radius: var(--radius-md);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
         }
 
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+        .btn-fill {
+            background: var(--primary);
+            color: var(--text-on-primary);
         }
 
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
+        .btn-fill::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.6s ease;
+            z-index: -1;
         }
 
-        .btn-accent {
-            background-color: var(--accent);
-            color: #222;
+        .btn-fill:hover::before { left: 100%; }
+        .btn-fill:hover {
+            transform: translateY(-3px);
+            background: var(--primary-dark);
+            box-shadow: var(--shadow-md);
         }
 
-        .btn-accent:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-2px);
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
         }
 
-        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; align-items: center; }
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .btn-outline:hover {
+            background: rgba(46, 125, 50, 0.05);
+            transform: translateY(-3px);
+        }
 
         /* ==========================================================================
-           4. NAVIGATION HEADER
+           3. APPLICATION NAVIGATION FRAMEWORK (NAVBAR)
            ========================================================================== */
-        header {
+        .main-header {
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            height: 100px;
+            background: var(--bg-nav);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border-alpha);
             z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: all var(--duration-md) var(--ease-elegant);
         }
 
-        [data-theme="dark"] header {
-            background-color: rgba(30, 30, 30, 0.85);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+        .main-header.scrolled {
+            height: 80px;
+            box-shadow: var(--shadow-sm);
         }
 
-        .nav-container {
+        .nav-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 90px;
+            height: 100%;
         }
 
-        .logo {
-            font-size: 28px;
+        .brand-logo {
+            font-size: 1.75rem;
             color: var(--primary);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
-        .nav-menu {
+        .brand-logo span {
+            font-size: 2.2rem;
+        }
+
+        .navigation-links {
             display: flex;
-            gap: 35px;
             align-items: center;
+            gap: 40px;
         }
 
-        .nav-link {
-            font-weight: 500;
+        .navigation-links a {
+            font-size: 0.95rem;
+            font-weight: 600;
             color: var(--text-main);
             position: relative;
-            font-size: 15px;
+            padding: 8px 0;
         }
 
-        .nav-link::after {
+        .navigation-links a::after {
             content: '';
             position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary);
-            transition: var(--transition);
+            bottom: 0; left: 0;
+            width: 0; height: 2px;
+            background: var(--primary);
+            transition: width var(--duration-sm) var(--ease-elegant);
         }
 
-        .nav-link:hover::after, .nav-link.active::after {
+        .navigation-links a:hover::after,
+        .navigation-links a.active::after {
             width: 100%;
         }
 
-        .nav-actions {
+        .nav-utility-hub {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 24px;
         }
 
-        .theme-toggle {
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
+        .mode-toggle-trigger {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--bg-base);
+            border: 1px solid var(--border-heavy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
             color: var(--text-main);
-            padding: 8px;
-            border-radius: 50px;
         }
 
-        .menu-toggle {
+        .mode-toggle-trigger:hover {
+            transform: scale(1.08);
+            background: var(--border-heavy);
+        }
+
+        .mobile-hamburger-btn {
             display: none;
             flex-direction: column;
             gap: 6px;
-            cursor: pointer;
-            background: none;
-            border: none;
+            width: 30px;
         }
 
-        .menu-toggle span {
-            width: 28px;
+        .mobile-hamburger-btn span {
+            width: 100%;
             height: 3px;
             background-color: var(--text-main);
             border-radius: 2px;
-            transition: var(--transition);
+            transition: all var(--duration-sm) var(--ease-elegant);
         }
 
         /* ==========================================================================
-           5. HERO BANNER
+           4. HERO LANDING PARALLAX SURFACE
            ========================================================================== */
-        #hero {
-            height: 100vh;
+        .hero-surface {
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135px, rgba(46,125,50,0.08) 0%, rgba(141,110,99,0.05) 100%);
-            padding-top: 90px;
+            padding-top: 100px;
+            background: linear-gradient(135px, rgba(46,125,50,0.06) 0%, rgba(141,110,99,0.04) 100%);
             position: relative;
             overflow: hidden;
         }
 
-        .hero-content {
-            max-width: 650px;
-        }
-
-        .hero-title {
-            font-size: 64px;
-            line-height: 1.15;
-            color: var(--primary-dark);
-            margin-bottom: 25px;
-        }
-
-        [data-theme="dark"] .hero-title {
-            color: var(--primary-light);
-        }
-
-        .hero-title span {
-            color: var(--secondary);
-        }
-
-        .hero-desc {
-            font-size: 18px;
-            color: var(--text-muted);
-            margin-bottom: 40px;
-            max-width: 550px;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 20px;
-        }
-
-        .hero-image-wrap {
+        .hero-graphics-container {
             position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            width: 100%;
+            height: 600px;
         }
 
-        .hero-circle-bg {
+        .hero-blob-backdrop {
             position: absolute;
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(45px, var(--primary-light), var(--primary));
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, rgba(76,175,80,0.2) 0%, transparent 70%);
             border-radius: 50%;
-            z-index: 1;
-            opacity: 0.15;
-            filter: blur(40px);
-            animation: floatShape 8s ease-in-out infinite alternate;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            animation: orbPulse 12s infinite ease-in-out alternate;
         }
 
-        .hero-main-img {
-            position: relative;
-            z-index: 2;
+        .hero-hero-img-node {
+            position: absolute;
+            width: 480px;
+            height: 480px;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-lg);
-            transform: rotate(-2deg);
-            transition: var(--transition);
-            max-height: 550px;
             object-fit: cover;
+            border: 8px solid var(--bg-surface);
+            transition: transform var(--duration-lg) var(--ease-elegant);
         }
 
-        .hero-main-img:hover {
-            transform: rotate(0deg) scale(1.02);
+        .hero-hero-img-node:hover {
+            transform: translate(-50%, -53%) rotate(1deg);
         }
 
-        @keyframes floatShape {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(30px, -30px) scale(1.1); }
-        }
-
-        /* ==========================================================================
-           6. ABOUT US & PHILOSOPHY
-           ========================================================================== */
-        #about {
-            background-color: var(--bg-card);
-        }
-
-        .about-img-grid {
-            position: relative;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .about-img {
+        .hero-micro-badge-card {
+            position: absolute;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-heavy);
             border-radius: var(--radius-md);
+            padding: 20px 24px;
             box-shadow: var(--shadow-md);
-            height: 280px;
-            object-fit: cover;
-            width: 100%;
-        }
-
-        .about-img-long {
-            grid-row: span 2;
-            height: 580px;
-        }
-
-        .about-text {
-            padding-left: 20px;
-        }
-
-        .about-features {
-            margin-top: 40px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .about-feat-item {
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
-        }
-
-        .about-feat-icon {
-            background-color: rgba(46,125,50,0.1);
-            color: var(--primary);
-            padding: 12px;
-            border-radius: 50%;
-            font-size: 20px;
-            flex-shrink: 0;
             display: flex;
             align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
+            gap: 16px;
+            z-index: 10;
         }
 
-        .about-feat-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: var(--text-main);
+        .card-pos-1 { bottom: 60px; left: 20px; }
+        .card-pos-2 { top: 60px; right: 20px; }
+
+        .micro-card-icon {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: rgba(46,125,50,0.1);
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        @keyframes orbPulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            100% { transform: translate(-45%, -48%) scale(1.2); opacity: 1; }
         }
 
         /* ==========================================================================
-           7. PRODUCT CATEGORIES (MENU TAB SYSTEM)
+           5. PRODUCT ECOSYSTEM ARCHITECTURE & CATALOG MENU
            ========================================================================== */
-        .menu-tabs {
+        .catalog-filter-bar {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 60px;
+            gap: 16px;
+            margin-bottom: 64px;
             flex-wrap: wrap;
         }
 
-        .tab-btn {
+        .filter-chip {
             padding: 14px 28px;
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 50px;
-            font-weight: 500;
-            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            background: var(--bg-surface);
             color: var(--text-main);
-            transition: var(--transition);
+            border: 1px solid var(--border-heavy);
             box-shadow: var(--shadow-sm);
         }
 
-        .tab-btn:hover, .tab-btn.active {
-            background-color: var(--primary);
-            color: white;
+        .filter-chip:hover, .filter-chip.active {
+            background: var(--primary);
+            color: var(--text-on-primary);
             border-color: var(--primary);
-            box-shadow: 0 4px 12px rgba(46,125,50,0.2);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
-        .products-container {
+        .catalog-grid-system {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 35px;
+            gap: 40px;
         }
 
-        .product-card {
-            background-color: var(--bg-card);
+        .noodle-showcase-card {
+            background: var(--bg-card);
             border-radius: var(--radius-md);
-            overflow: hidden;
+            border: 1px solid var(--border-alpha);
             box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
-            transition: var(--transition);
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             position: relative;
+            transition: all var(--duration-md) var(--ease-elegant);
         }
 
-        .product-card:hover {
-            transform: translateY(-8px);
+        .noodle-showcase-card:hover {
+            transform: translateY(-10px);
             box-shadow: var(--shadow-lg);
+            border-color: rgba(46, 125, 50, 0.2);
         }
 
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background-color: var(--primary);
-            color: white;
-            padding: 6px 14px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            border-radius: 50px;
-            z-index: 3;
-        }
-
-        .product-img-wrap {
-            position: relative;
-            height: 250px;
+        .card-visual-header {
+            width: 100%;
+            height: 280px;
             overflow: hidden;
-            background-color: #eee;
+            position: relative;
         }
 
-        .product-img {
+        .card-visual-header img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
+            transition: transform var(--duration-lg) var(--ease-elegant);
         }
 
-        .product-card:hover .product-img {
-            transform: scale(1.06);
+        .noodle-showcase-card:hover .card-visual-header img {
+            transform: scale(1.08);
         }
 
-        .product-body {
-            padding: 30px;
+        .card-floating-pill {
+            position: absolute;
+            top: 20px; left: 20px;
+            background: var(--bg-surface);
+            padding: 6px 14px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: var(--radius-full);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-heavy);
+            color: var(--text-main);
+        }
+
+        .card-inner-body {
+            padding: 32px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
-        .product-meta {
+        .card-meta-spec {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-            font-size: 13px;
-            color: var(--secondary);
+            font-size: 0.8rem;
             font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 12px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.05em;
         }
 
-        .product-title {
-            font-size: 24px;
+        .card-product-title {
+            font-size: 1.5rem;
             color: var(--text-main);
             margin-bottom: 12px;
-            line-height: 1.3;
         }
 
-        .product-desc {
+        .card-product-desc {
+            font-size: 0.95rem;
             color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             flex-grow: 1;
         }
 
-        .product-footer {
+        .card-action-footer {
+            padding-top: 24px;
+            border-top: 1px solid var(--border-alpha);
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
+            justify-content: space-between;
         }
 
-        .product-price {
-            font-size: 22px;
+        .card-price-tag {
+            font-size: 1.65rem;
             font-weight: 700;
             color: var(--primary-dark);
         }
 
-        [data-theme="dark"] .product-price {
+        [data-theme="dark"] .card-price-tag {
             color: var(--primary-light);
         }
 
-        .btn-cart {
-            background-color: rgba(46,125,50,0.08);
-            color: var(--primary);
-            width: 44px;
-            height: 44px;
+        .interactive-cart-cta {
+            width: 48px; height: 48px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-            transition: var(--transition);
+            background: rgba(46, 125, 50, 0.06);
+            color: var(--primary);
+            font-size: 1.1rem;
         }
 
-        .btn-cart:hover {
-            background-color: var(--primary);
-            color: white;
+        .interactive-cart-cta:hover {
+            background: var(--primary);
+            color: var(--text-on-primary);
+            transform: scale(1.05);
         }
 
         /* ==========================================================================
-           8. DETAILED NUTRITION & TECHNICAL SPECS
+           6. MACRONUTRIENT ARRAYS & ANALYTICAL METRICS TAB
            ========================================================================== */
-        #nutrition {
-            background-color: var(--bg-card);
-        }
-
-        .nutrition-box {
-            background-color: var(--bg-light);
+        .nutrition-panel-wrapper {
+            background: var(--bg-surface);
             border-radius: var(--radius-lg);
-            padding: 50px;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-heavy);
+            box-shadow: var(--shadow-md);
+            padding: 48px;
         }
 
-        .nutrition-tabs {
+        .nutrition-selector-strip {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
-            margin-bottom: 40px;
+            gap: 12px;
+            margin-bottom: 48px;
         }
 
-        .nut-tab-btn {
-            padding: 15px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            cursor: pointer;
+        .nut-strip-trigger {
+            padding: 16px;
+            background: var(--bg-base);
+            border: 1px solid var(--border-heavy);
+            border-radius: var(--radius-md);
             font-weight: 600;
             color: var(--text-main);
-            transition: var(--transition);
             text-align: center;
         }
 
-        .nut-tab-btn.active, .nut-tab-btn:hover {
+        .nut-strip-trigger.active, .nut-strip-trigger:hover {
             border-color: var(--primary);
-            background-color: rgba(46,125,50,0.05);
+            background: rgba(46, 125, 50, 0.04);
             color: var(--primary);
         }
 
-        .nut-content-panel {
+        .nutrient-display-board {
             display: none;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 50px;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 64px;
             align-items: center;
         }
 
-        .nut-content-panel.active {
+        .nutrient-display-board.active {
             display: grid;
         }
 
-        .nut-table-wrap h4 {
-            font-size: 28px;
-            margin-bottom: 25px;
-            color: var(--primary-dark);
-        }
-
-        [data-theme="dark"] .nut-table-wrap h4 {
-            color: var(--primary-light);
-        }
-
-        .nutrition-table {
+        .nut-table-element {
             width: 100%;
             border-collapse: collapse;
         }
 
-        .nutrition-table tr {
-            border-bottom: 1px solid var(--border-color);
+        .nut-table-element tr {
+            border-bottom: 1px solid var(--border-heavy);
         }
 
-        .nutrition-table td {
-            padding: 14px 0;
-            font-size: 15px;
+        .nut-table-element td {
+            padding: 16px 0;
+            font-size: 1rem;
+            color: var(--text-main);
         }
 
-        .nutrition-table td:last-child {
+        .nut-table-element td:last-child {
             text-align: right;
-            font-weight: 600;
+            font-weight: 700;
         }
 
-        .nut-features-list {
-            margin-top: 25px;
+        .nut-highlight-badges {
             display: flex;
-            gap: 15px;
+            gap: 12px;
+            margin-top: 32px;
             flex-wrap: wrap;
         }
 
-        .nut-feat-tag {
-            background-color: var(--bg-card);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 500;
-            border: 1px solid var(--border-color);
+        .nut-badge {
+            background: var(--bg-base);
+            border: 1px solid var(--border-heavy);
+            padding: 8px 18px;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
         }
 
-        .nut-visuals img {
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
+        .nut-visual-banner-wrap {
             width: 100%;
-            height: 380px;
+            height: 420px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nut-visual-banner-wrap img {
+            width: 100%; height: 100%;
             object-fit: cover;
         }
 
         /* ==========================================================================
-           9. PRODUCTION PROCESS TIMELINE
+           7. INTERACTIVE SERVINGS CALCULATOR WIDGET
            ========================================================================== */
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
+        .calc-panel {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-heavy);
+            box-shadow: var(--shadow-md);
+            padding: 48px;
+            margin-top: 64px;
         }
 
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background-color: var(--border-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1px;
+        .calc-inputs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 32px;
         }
 
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-            box-sizing: border-box;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background-color: var(--bg-light);
-            border: 4px solid var(--primary);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-            transition: var(--transition);
-        }
-
-        .timeline-left { left: 0; text-align: right; }
-        .timeline-right { left: 50%; }
-        .timeline-right::after { left: -10px; }
-
-        .timeline-card {
-            padding: 30px;
-            background-color: var(--bg-card);
-            position: relative;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
-        }
-
-        .timeline-card h3 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 22px;
-        }
-
-        /* ==========================================================================
-           10. TESTIMONIALS CAROUSEL
-           ========================================================================== */
-        #testimonials {
-            background-color: var(--bg-card);
-            overflow: hidden;
-        }
-
-        .review-slider-container {
-            max-width: 850px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .review-track {
+        .calc-group {
             display: flex;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            flex-direction: column;
+            gap: 12px;
         }
 
-        .review-card {
-            min-width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
+        .calc-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-main);
+        }
+
+        .calc-select, .calc-input {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-heavy);
+            background: var(--bg-base);
+            color: var(--text-main);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .calc-results-display {
+            background: rgba(46, 125, 50, 0.04);
+            border: 1px dashed var(--primary);
+            border-radius: var(--radius-md);
+            padding: 32px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
             text-align: center;
         }
 
-        .review-quote {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-style: italic;
-            color: var(--text-main);
-            margin-bottom: 30px;
-            line-height: 1.6;
+        .calc-metric h4 {
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
         }
 
-        .review-user {
+        [data-theme="dark"] .calc-metric h4 {
+            color: var(--primary-light);
+        }
+
+        .calc-metric p {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           8. HISTORICAL PRODUCTION CHRONOLOGY TIMELINE
+           ========================================================================== */
+        .production-chronology {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .production-chronology::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--border-heavy);
+            top: 0; bottom: 0; left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .chronology-node {
+            width: 50%;
+            padding: 24px 48px;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .chronology-node::after {
+            content: '';
+            position: absolute;
+            width: 20px; height: 20px;
+            background: var(--bg-base);
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 36px; z-index: 2;
+        }
+
+        .node-left { left: 0; text-align: right; }
+        .node-left::after { right: -10px; }
+        .node-right { left: 50%; }
+        .node-right::after { left: -10px; }
+
+        .chronology-inner-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-heavy);
+            padding: 32px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .chronology-inner-card h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        /* ==========================================================================
+           9. VERIFIED CUSTOMER REVIEWS SLIDER
+           ========================================================================== */
+        .reviews-slider-enclosure {
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .reviews-reel-track {
+            display: flex;
+            transition: transform var(--duration-lg) var(--ease-elegant);
+        }
+
+        .review-viewport-tile {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .review-quote-string {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            line-height: 1.5;
+            color: var(--text-main);
+            margin-bottom: 32px;
+        }
+
+        .review-user-profile-meta {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
+            gap: 16px;
         }
 
-        .review-avatar {
-            width: 60px;
-            height: 60px;
+        .user-avatar-mask {
+            width: 64px; height: 64px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--primary);
         }
 
-        .review-name {
-            font-weight: 600;
-            color: var(--text-main);
+        .user-meta-details {
             text-align: left;
         }
 
-        .review-role {
-            font-size: 13px;
-            color: var(--text-muted);
-        }
+        .user-profile-name { font-weight: 700; color: var(--text-main); }
+        .user-profile-sub { font-size: 0.85rem; color: var(--text-muted); }
 
-        .slider-controls {
+        .slider-navigation-beads {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-top: 40px;
+            gap: 12px;
+            margin-top: 48px;
         }
 
-        .slider-dot {
-            width: 10px;
-            height: 10px;
+        .nav-bead {
+            width: 12px; height: 12px;
             border-radius: 50%;
-            background-color: var(--border-color);
-            cursor: pointer;
-            transition: var(--transition);
+            background: var(--border-heavy);
         }
 
-        .slider-dot.active {
-            background-color: var(--primary);
-            width: 30px;
-            border-radius: 5px;
+        .nav-bead.active {
+            background: var(--primary);
+            width: 32px;
+            border-radius: 6px;
         }
 
         /* ==========================================================================
-           11. FAQ ACCORDION SECION
+           10. INTERACTIVE COLLAPSIBLE FAQ MODULE
            ========================================================================== */
-        .faq-max {
-            max-width: 800px;
+        .faq-accordion-container {
+            max-width: 840px;
             margin: 0 auto;
         }
 
-        .faq-item {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
+        .accordion-block {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-heavy);
             border-radius: var(--radius-sm);
-            margin-bottom: 15px;
+            margin-bottom: 16px;
             overflow: hidden;
-            transition: var(--transition);
+            transition: border-color var(--duration-sm) ease;
         }
 
-        .faq-trigger {
+        .accordion-header-trigger {
             width: 100%;
-            padding: 24px 30px;
+            padding: 24px 32px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             background: none;
-            border: none;
             text-align: left;
-            font-size: 18px;
+            font-size: 1.15rem;
             font-weight: 600;
             color: var(--text-main);
-            cursor: pointer;
         }
 
-        .faq-icon {
-            font-size: 22px;
-            transition: var(--transition);
+        .accordion-header-trigger span {
             color: var(--primary);
+            font-size: 1.5rem;
+            transition: transform var(--duration-sm) ease;
         }
 
-        .faq-content {
+        .accordion-drawer-body {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.35s ease;
-            padding: 0 30px;
+            transition: all var(--duration-md) var(--ease-elegant);
+            padding: 0 32px;
             color: var(--text-muted);
-            font-size: 15px;
         }
 
-        .faq-item.active .faq-content {
+        .accordion-block.open {
+            border-color: var(--primary);
+        }
+
+        .accordion-block.open .accordion-drawer-body {
             padding-bottom: 24px;
         }
 
-        .faq-item.active .faq-icon {
-            transform: rotate(45px);
+        .accordion-block.open .accordion-header-trigger span {
+            transform: rotate(45deg);
         }
 
         /* ==========================================================================
-           12. CONTACT FORM & LOCATION MAP
+           11. ENHANCED SECURE CONTACT DISPATCH SYSTEM
            ========================================================================== */
-        #contact {
-            background-color: var(--bg-card);
-        }
-
-        .contact-wrapper {
+        .contact-workspace-split {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
-            gap: 60px;
+            gap: 64px;
         }
 
-        .contact-info-block {
+        .contact-channel-directory {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 32px;
         }
 
-        .info-card {
+        .channel-card-node {
             display: flex;
             gap: 20px;
-            align-items: flex-start;
         }
 
-        .info-icon {
-            background-color: rgba(46,125,50,0.08);
-            color: var(--primary);
-            width: 54px;
-            height: 54px;
+        .channel-card-icon {
+            width: 56px; height: 56px;
             border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
+            background: rgba(46, 125, 50, 0.06);
+            color: var(--primary);
+            font-size: 1.5rem;
             flex-shrink: 0;
         }
 
-        .info-text h3 {
-            font-size: 18px;
-            margin-bottom: 6px;
-        }
+        .channel-card-details h4 { font-size: 1.15rem; margin-bottom: 4px; }
+        .channel-card-details p { color: var(--text-muted); font-size: 0.95rem; }
 
-        .info-text p {
-            color: var(--text-muted);
-            font-size: 15px;
-        }
-
-        .map-mockup {
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
-            height: 250px;
-            background-color: #e5e5e5;
-            position: relative;
-        }
-
-        .contact-form {
-            background-color: var(--bg-light);
-            padding: 45px;
+        .dispatch-form-panel {
+            background: var(--bg-surface);
+            padding: 48px;
             border-radius: var(--radius-lg);
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border-heavy);
         }
 
-        .form-grid {
+        .form-structural-row {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
         }
 
-        .form-group {
+        .field-group {
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
 
-        .form-group-full {
-            grid-column: span 2;
-        }
+        .field-full-span { grid-column: span 2; }
 
-        .form-control {
-            padding: 14px 20px;
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--border-color);
-            background-color: var(--bg-card);
-            color: var(--text-main);
-            font-size: 15px;
-            transition: var(--transition);
+        .input-element-control {
             width: 100%;
+            padding: 16px 20px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-heavy);
+            background: var(--bg-base);
+            color: var(--text-main);
+            font-size: 0.95rem;
+            transition: all var(--duration-sm) ease;
         }
 
-        .form-control:focus {
-            outline: none;
+        .input-element-control:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(46,125,50,0.1);
+            box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.1);
         }
 
-        textarea.form-control {
+        textarea.input-element-control {
             resize: vertical;
             min-height: 140px;
         }
 
         /* ==========================================================================
-           13. LUXURY FOOTER SYSTEM
+           12. ENTERPRISE FOOTER STRUCTURE
            ========================================================================== */
-        footer {
-            background-color: #111111;
-            color: #ffffff;
-            padding: 80px 0 30px 0;
+        .master-footer {
+            background: #0B0F0C;
+            color: #FFFFFF;
+            padding: 96px 0 32px 0;
+            border-top: 1px solid #161D18;
         }
 
-        .footer-grid {
+        .footer-columns-matrix {
             display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-            gap: 40px;
-            margin-bottom: 60px;
+            grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+            gap: 48px;
+            margin-bottom: 64px;
         }
 
-        .footer-brand .logo {
-            color: var(--primary-light);
-            margin-bottom: 20px;
-        }
-
-        .footer-brand p {
-            color: #aaaaaa;
-            font-size: 14px;
-            margin-bottom: 25px;
-        }
-
-        .footer-socials {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            background-color: #222222;
+        .footer-brand-summary img { margin-bottom: 20px; }
+        .footer-brand-summary p { color: #8A948D; font-size: 0.95rem; margin-bottom: 24px; }
+        
+        .footer-social-deck { display: flex; gap: 16px; }
+        .deck-social-anchor {
+            width: 40px; height: 40px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            transition: var(--transition);
+            background: #161D18;
+            color: #FFFFFF;
         }
+        .deck-social-anchor:hover { background: var(--primary); transform: translateY(-2px); }
 
-        .social-icon:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .footer-heading {
-            font-size: 18px;
+        .footer-column-headline {
+            font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 25px;
+            margin-bottom: 24px;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
         }
 
-        .footer-heading::after {
+        .footer-column-headline::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--primary);
+            bottom: 0; left: 0;
+            width: 32px; height: 2px;
+            background: var(--primary);
         }
 
-        .footer-links flex-direction: column; display: flex; gap: 14px;
-
-        .footer-link {
-            color: #aaaaaa;
-            font-size: 14px;
-        }
-
-        .footer-link:hover {
-            color: #ffffff;
-            padding-left: 5px;
-        }
-
-        .newsletter-form {
+        .footer-links-list {
+            list-style: none;
             display: flex;
-            gap: 10px;
+            flex-direction: column;
+            gap: 14px;
         }
 
-        .newsletter-input {
-            padding: 12px 20px;
-            border-radius: 50px;
-            border: 1px solid #333333;
-            background-color: #222222;
+        .footer-links-list a {
+            color: #8A948D;
+            font-size: 0.95rem;
+        }
+
+        .footer-links-list a:hover {
+            color: #FFFFFF;
+            padding-left: 4px;
+        }
+
+        .newsletter-input-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .newsletter-field {
+            background: #161D18;
+            border: 1px solid #232E26;
+            padding: 14px 20px;
+            border-radius: var(--radius-sm);
             color: white;
-            font-size: 14px;
+            font-size: 0.9rem;
             flex-grow: 1;
         }
 
-        .newsletter-input:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .footer-bottom {
-            padding-top: 30px;
-            border-top: 1px solid #222222;
+        .footer-base-row {
+            padding-top: 32px;
+            border-top: 1px solid #161D18;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-            color: #888888;
+            font-size: 0.85rem;
+            color: #5C665F;
         }
 
         /* ==========================================================================
-           14. RESPONSIVE MEDIA QUERIES
+           13. GRID & LAYOUT RESPONSIVE ADAPTATIONS
            ========================================================================== */
-        @media (max-width: 1100px) {
-            .grid-3 { grid-template-columns: repeat(2, 1fr); }
-            .products-container { grid-template-columns: repeat(2, 1fr); }
-            .footer-grid { grid-template-columns: repeat(2, 1fr); }
-            .nutrition-tabs { grid-template-columns: repeat(3, 1fr); }
+        @media (max-width: 1200px) {
+            .catalog-grid-system { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+            .footer-columns-matrix { grid-template-columns: repeat(2, 1fr); }
+            .nutrition-selector-strip { grid-template-columns: repeat(3, 1fr); }
         }
 
-        @media (max-width: 850px) {
-            .grid-2, .contact-wrapper, .nut-content-panel.active { grid-template-columns: 1fr; gap: 40px; }
-            .hero-title { font-size: 46px; }
-            #hero { height: auto; padding: 140px 0 80px 0; text-align: center; }
-            .hero-content, .hero-desc { max-width: 100%; margin-left: auto; margin-right: auto; }
-            .hero-btns { justify-content: center; }
-            .about-img-long { height: 280px; grid-row: auto; }
-            .timeline::after { left: 20px; }
-            .timeline-item { width: 100%; padding-left: 50px; padding-right: 0; text-align: left; }
-            .timeline-item::after { left: 10px; }
-            .menu-toggle { display: flex; }
-            .nav-menu {
+        @media (max-width: 992px) {
+            .grid-layout-2, .contact-workspace-split, .nutrient-display-board.active { grid-template-columns: 1fr; gap: 48px; }
+            .heading-xl { font-size: 2.8rem; }
+            .hero-surface { padding-top: 140px; text-align: center; }
+            .hero-graphics-container { height: 440px; }
+            .hero-hero-img-node { width: 360px; height: 360px; }
+            .production-chronology::after { left: 16px; }
+            .chronology-node { width: 100%; padding-left: 40px; padding-right: 0; text-align: left; }
+            .chronology-node::after { left: 6px; }
+            
+            /* Responsive Nav Trigger */
+            .mobile-hamburger-btn { display: flex; }
+            .navigation-links {
                 position: fixed;
-                top: 90px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 90px);
-                background-color: var(--bg-card);
+                top: 100px; left: -100%;
+                width: 100%; height: calc(100vh - 100px);
+                background: var(--bg-surface);
                 flex-direction: column;
-                padding: 50px;
-                transition: var(--transition);
+                padding: 64px 48px;
                 align-items: flex-start;
-                box-shadow: var(--shadow-lg);
+                justify-content: flex-start;
+                gap: 32px;
+                transition: left var(--duration-md) var(--ease-elegant);
+                border-top: 1px solid var(--border-heavy);
             }
-            .nav-menu.active { left: 0; }
+            .navigation-links.open { left: 0; }
         }
 
-        @media (max-width: 550px) {
-            .grid-4, .nutrition-tabs { grid-template-columns: 1fr; }
-            .products-container { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .form-grid { grid-template-columns: 1fr; }
-            .form-group-full { grid-column: auto; }
-            .section-title { font-size: 32px; }
+        @media (max-width: 768px) {
+            .wrapper { padding: 0 24px; }
+            .catalog-grid-system, .nutrition-selector-strip, .calc-inputs-grid, .calc-results-display, .form-structural-row { grid-template-columns: 1fr; }
+            .field-full-span { grid-column: auto; }
+            .footer-columns-matrix { grid-template-columns: 1fr; }
+            .heading-lg { font-size: 2rem; }
+            .nutrition-panel-wrapper, .calc-panel, .dispatch-form-panel { padding: 24px; }
         }
     </style>
 </head>
 <body>
 
     <!-- ==========================================================================
-       TOP NAVIGATION BAR
+       TOP GLOBAL NAVIGATION LAYER
        ========================================================================== -->
-    <header>
-        <div class="container nav-container">
-            <a href="#hero" class="logo">
-                <span>🌿</span><strong>PureGrain</strong>
+    <header class="main-header" id="globalHeader">
+        <div class="wrapper nav-inner">
+            <a href="#hero" class="brand-logo">
+                <span>🍜</span><strong>NoodleCraft</strong>
             </a>
-            <nav class="nav-menu" id="navMenu">
-                <a href="#hero" class="nav-link active">Home</a>
-                <a href="#about" class="nav-link">Our Story</a>
-                <a href="#menu" class="nav-link">Noodle Menu</a>
-                <a href="#nutrition" class="nav-link">Nutrition Facts</a>
-                <a href="#process" class="nav-link">Crafting Process</a>
-                <a href="#contact" class="nav-link">Contact</a>
+            <nav class="navigation-links" id="globalNav">
+                <a href="#hero" class="active">Home</a>
+                <a href="#catalog">The Menu</a>
+                <a href="#nutrition">Nutrient Profiles</a>
+                <a href="#calculator">Servings Tool</a>
+                <a href="#chronology">Crafting Pipeline</a>
+                <a href="#contact">Contact</a>
             </nav>
-            <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">🌓</button>
-                <a href="#menu" class="btn btn-primary" style="padding: 10px 24px; font-size: 14px;">Order Now</a>
-                <button class="menu-toggle" id="menuToggle">
+            <div class="nav-utility-hub">
+                <button class="mode-toggle-trigger flex-center" id="themeEngineToggle" title="Toggle System Luminescence">🌓</button>
+                <a href="#catalog" class="btn-core btn-fill" style="padding: 12px 24px; font-size: 0.85rem; border-radius: var(--radius-sm);">Order Catalog</a>
+                <button class="mobile-hamburger-btn" id="mobileMenuTrigger" title="Expand Nav Deck">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -1180,163 +1148,136 @@
     </header>
 
     <!-- ==========================================================================
-       HERO BANNER
+       HERO DESCENT INTERFACE SURFACE
        ========================================================================== -->
-    <section id="hero">
-        <div class="container grid-2">
-            <div class="hero-content">
-                <span class="section-tag">100% Certified Organic Ingredients</span>
-                <h1 class="hero-title">Sustainably Grown. <br><span>Artisanally Crafted</span> Organic Noodles.</h1>
-                <p class="hero-desc">Discover our premium range of nutrient-rich, farm-to-table artisan noodles. Free from artificial chemicals, high in dietary fiber, and meticulously produced for healthy living.</p>
-                <div class="hero-btns">
-                    <a href="#menu" class="btn btn-primary">Explore Our Menu 🍜</a>
-                    <a href="#about" class="btn btn-accent">Our Philosophy</a>
+    <section class="hero-surface" id="hero">
+        <div class="wrapper grid-layout-2">
+            <div>
+                <span class="badge">Ecocert 100% Certified Organic Flour Base</span>
+                <h1 class="heading-xl">Pure Agricultural Roots. <br><span style="color: var(--primary);">Artisan Filament</span> Geometry.</h1>
+                <p class="desc-text">Welcome to NoodleCraft, where pristine old-world seed strains encounter modern slow-dehydration practices. Explore structural culinary geometry shaped around nutrient integrity, zero chemical additives, and exceptional digestive comfort.</p>
+                <div style="display: flex; gap: 16px; justify-content: inherit;">
+                    <a href="#catalog" class="btn-core btn-fill">Explore Menu Matrix</a>
+                    <a href="#chronology" class="btn-core btn-outline">Our Extraction Process</a>
                 </div>
             </div>
-            <div class="hero-image-wrap">
-                <div class="hero-circle-bg"></div>
-                <img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?auto=format&fit=crop&w=800&q=80" alt="Fresh Organic Noodles Display" class="hero-main-img">
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================================================
-       ABOUT US & PHILOSOPHY
-       ========================================================================== -->
-    <section id="about" class="section">
-        <div class="container grid-2">
-            <div class="about-img-grid">
-                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=600&q=80" alt="Artisan Noodle Preparation" class="about-img about-img-long">
-                <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80" alt="Raw Organic Ingredients" class="about-img">
-                <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=600&q=80" alt="Freshly Prepared Noodle Bowl" class="about-img">
-            </div>
-            <div class="about-text">
-                <span class="section-tag">Rooted In Wellness</span>
-                <h2 class="section-title">The Absolute PureGrain standard of Wholesome Eating</h2>
-                <p class="section-desc" style="margin-bottom: 20px;">We believe that food should heal, fuel, and delight all at once. PureGrain collaborates exclusively with verified organic agricultural co-ops to source primitive, clean crops that haven't been touched by industrial chemical fertilizers or dangerous GMO treatments.</p>
-                <p class="section-desc">Every recipe balances clean plant proteins, heavy mineral components, and slow-burning whole complex carbohydrates, bringing true culinary excellence straight to your kitchen table.</p>
-                <div class="about-features">
-                    <div class="about-feat-item">
-                        <div class="about-feat-icon">🌾</div>
-                        <div>
-                            <h4 class="about-feat-title">Primitive Grains Only</h4>
-                            <p class="section-desc" style="font-size: 13px;">100% natural heritage varieties selected carefully for digestion.</p>
-                        </div>
-                    </div>
-                    <div class="about-feat-item">
-                        <div class="about-feat-icon">🧼</div>
-                        <div>
-                            <h4 class="about-feat-title">Zero Additives</h4>
-                            <p class="section-desc" style="font-size: 13px;">Strictly absent of synthetic colorants, toxic chemical processing, or fake thickeners.</p>
-                        </div>
-                    </div>
+            <div class="hero-graphics-container">
+                <div class="hero-blob-backdrop"></div>
+                <img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?auto=format&fit=crop&w=800&q=80" alt="Artisan Organic Noodle Bundle" class="hero-hero-img-node">
+                <div class="hero-micro-badge-card card-pos-1">
+                    <div class="micro-card-icon flex-center">🌾</div>
+                    <div><h5 style="font-size:0.95rem; font-weight:700;">Heritage Crops</h5><p style="font-size:0.75rem; color:var(--text-muted);">Zero Chemical Spraying</p></div>
+                </div>
+                <div class="hero-micro-badge-card card-pos-2">
+                    <div class="micro-card-icon flex-center">🧪</div>
+                    <div><h5 style="font-size:0.95rem; font-weight:700;">Lab Validated</h5><p style="font-size:0.75rem; color:var(--text-muted);">Gluten Density Verified</p></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ==========================================================================
-       PRODUCT CATEGORIES & MAIN BASIC MENU
+       PRODUCT CATALOG METRIC GRID (THE MAIN MENU)
        ========================================================================== -->
-    <section id="menu" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Artisan Collections</span>
-                <h2 class="section-title">Browse Our Organic Noodle Menu</h2>
-                <p class="section-desc">Filter through our meticulously structured product ranges tailored explicitly to diverse diet profiles, lifestyles, and unique taste preferences.</p>
+    <section class="section-padding" id="catalog">
+        <div class="wrapper">
+            <div style="text-align: center; margin-bottom: 56px;">
+                <span class="badge">Artisan Collections Menu</span>
+                <h2 class="heading-lg">The Organic Core Product Ecosystem</h2>
+                <p class="desc-text" style="margin: 0 auto;">Filter down your specific structural preferences across five nutrient-focused grain fields engineered for holistic kitchen performance.</p>
             </div>
 
-            <div class="menu-tabs">
-                <button class="tab-btn active" data-filter="all">Show All Products</button>
-                <button class="tab-btn" data-filter="egg">Artisan Egg</button>
-                <button class="tab-btn" data-filter="sweet-potato">Sweet Potato</button>
-                <button class="tab-btn" data-filter="rice">Classic Rice</button>
-                <button class="tab-btn" data-filter="buckwheat">Buckwheat Soba</button>
-                <button class="tab-btn" data-filter="millet">Ancient Millet</button>
+            <div class="catalog-filter-bar">
+                <button class="filter-chip active" data-filter="all">All Varieties</button>
+                <button class="filter-chip" data-filter="egg">Free-Range Egg</button>
+                <button class="filter-chip" data-filter="sweet-potato">Sweet Potato Glass</button>
+                <button class="filter-chip" data-filter="rice">Stone-Ground Rice</button>
+                <button class="filter-chip" data-filter="buckwheat">Autumn Buckwheat</button>
+                <button class="filter-chip" data-filter="millet">Ancient Heritage Millet</button>
             </div>
 
-            <div class="products-container">
+            <div class="catalog-grid-system" id="catalogGrid">
                 <!-- Product 1: Egg Noodles -->
-                <div class="product-card" data-category="egg">
-                    <span class="product-badge">High Protein</span>
-                    <div class="product-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=600&q=80" alt="Organic Egg Noodles" class="product-img">
+                <div class="noodle-showcase-card" data-category="egg">
+                    <div class="card-visual-header">
+                        <span class="card-floating-pill">High Protein Profile</span>
+                        <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=600&q=80" alt="Artisan Egg Noodles">
                     </div>
-                    <div class="product-body">
-                        <div class="product-meta"><span>Traditional Cut</span><span>Pack of 3</span></div>
-                        <h3 class="product-title">Artisan Golden Egg Noodles</h3>
-                        <p class="product-desc">Enriched seamlessly with pastured organic free-range eggs. Perfect firm texture for traditional stir-fries and heavy bone broths.</p>
-                        <div class="product-footer">
-                            <span class="product-price">$6.49</span>
-                            <button class="btn-cart">🛒</button>
+                    <div class="card-inner-body">
+                        <div class="card-meta-spec"><span>2.5mm Ribbon Cut</span><span>3 Servings Pack</span></div>
+                        <h3 class="card-product-title">Artisan Pastured Golden Egg Noodles</h3>
+                        <p class="card-product-desc">Enriched with organic free-range egg yolks, creating excellent structural elasticity and a velvet bite optimized for rich broths.</p>
+                        <div class="card-action-footer">
+                            <span class="card-price-tag">$6.45</span>
+                            <button class="interactive-cart-cta flex-center" title="Allocate Pack to Basket">🛒</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 2: Sweet Potato Noodles -->
-                <div class="product-card" data-category="sweet-potato">
-                    <span class="product-badge">Gluten Free</span>
-                    <div class="product-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80" alt="Sweet Potato Noodles" class="product-img">
+                <!-- Product 2: Sweet Potato Glass Noodles -->
+                <div class="noodle-showcase-card" data-category="sweet-potato">
+                    <div class="card-visual-header">
+                        <span class="card-floating-pill">100% Allergen Isolated</span>
+                        <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80" alt="Sweet Potato Glass Noodles">
                     </div>
-                    <div class="product-body">
-                        <div class="product-meta"><span>Cellophane Style</span><span>Pack of 2</span></div>
-                        <h3 class="product-title">Purple Sweet Potato Glass Noodles</h3>
-                        <p class="product-desc">Beautiful, translucent glass noodles drawn directly from clean starch. Completely allergen-free with a deliciously bouncy chew.</p>
-                        <div class="product-footer">
-                            <span class="product-price">$7.25</span>
-                            <button class="btn-cart">🛒</button>
+                    <div class="card-inner-body">
+                        <div class="card-meta-spec"><span>Translucent Filament</span><span>2 Servings Pack</span></div>
+                        <h3 class="card-product-title">Purple Sweet Potato Glass Noodles</h3>
+                        <p class="card-product-desc">Extracted cleanly from organic starch vectors. Completely transparent upon boiling, with a uniquely dense, springy texture.</p>
+                        <div class="card-action-footer">
+                            <span class="card-price-tag">$7.20</span>
+                            <button class="interactive-cart-cta flex-center" title="Allocate Pack to Basket">🛒</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 3: Rice Noodles -->
-                <div class="product-card" data-category="rice">
-                    <span class="product-badge">Low Carb Option</span>
-                    <div class="product-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=600&q=80" alt="Organic Rice Noodles" class="product-img">
+                <!-- Product 3: Brown Rice Noodles -->
+                <div class="noodle-showcase-card" data-category="rice">
+                    <div class="card-visual-header">
+                        <span class="card-floating-pill">Hypoallergenic Base</span>
+                        <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=600&q=80" alt="Brown Rice Vermicelli">
                     </div>
-                    <div class="product-body">
-                        <div class="product-meta"><span>Flat Width</span><span>Pack of 4</span></div>
-                        <h3 class="product-title">Stone-Ground Brown Rice Noodles</h3>
-                        <p class="product-desc">Whole-grain alternative containing healthy exterior bran layers intact. Tailored perfectly for Pad Thai and hot noodle soups.</p>
-                        <div class="product-footer">
-                            <span class="product-price">$5.99</span>
-                            <button class="btn-cart">🛒</button>
+                    <div class="card-inner-body">
+                        <div class="card-meta-spec"><span>Flat Tagliatelle Profiles</span><span>4 Servings Pack</span></div>
+                        <h3 class="card-product-title">Stone-Ground Organic Rice Strands</h3>
+                        <p class="card-product-desc">Milled directly from sprouted heritage brown grains with outer aleurone layers intact for maximum dietary element capture.</p>
+                        <div class="card-action-footer">
+                            <span class="card-price-tag">$5.95</span>
+                            <button class="interactive-cart-cta flex-center" title="Allocate Pack to Basket">🛒</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 4: Buckwheat Noodles -->
-                <div class="product-card" data-category="buckwheat">
-                    <span class="product-badge">Low GI Index</span>
-                    <div class="product-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=600&q=80" alt="Buckwheat Soba Noodles" class="product-img">
+                <!-- Product 4: Buckwheat Soba Noodles -->
+                <div class="noodle-showcase-card" data-category="buckwheat">
+                    <div class="card-visual-header">
+                        <span class="card-floating-pill">Low Glycemic Rank</span>
+                        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=600&q=80" alt="Autumn Buckwheat Soba">
                     </div>
-                    <div class="product-body">
-                        <div class="product-meta"><span>Japanese Soba Style</span><span>Pack of 3</span></div>
-                        <h3 class="product-title">Pure Autumn Buckwheat Noodles</h3>
-                        <p class="product-desc">Authentic unrefined soba blends featuring rich dietary fiber profiles, magnesium, and an intensely pleasant nutty aroma.</p>
-                        <div class="product-footer">
-                            <span class="product-price">$8.10</span>
-                            <button class="btn-cart">🛒</button>
+                    <div class="card-inner-body">
+                        <div class="card-meta-spec"><span>Square Soba Geometric Cut</span><span>3 Servings Pack</span></div>
+                        <h3 class="card-product-title">Autumn Hull Whole Buckwheat Soba</h3>
+                        <p class="card-product-desc">A complex, deeply rustic, earthy formulation using unrefined pseudo-cereal groats loaded with active plant flavonoids like rutin.</p>
+                        <div class="card-action-footer">
+                            <span class="card-price-tag">$7.90</span>
+                            <button class="interactive-cart-cta flex-center" title="Allocate Pack to Basket">🛒</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 5: Millet Noodles -->
-                <div class="product-card" data-category="millet">
-                    <span class="product-badge">Alkalizing Grain</span>
-                    <div class="product-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1516100882582-96c3a05fe590?auto=format&fit=crop&w=600&q=80" alt="Millet Grains Noodles" class="product-img">
+                <div class="noodle-showcase-card" data-category="millet">
+                    <div class="card-visual-header">
+                        <span class="card-floating-pill">Alkalizing Profile</span>
+                        <img src="https://images.unsplash.com/photo-1516100882582-96c3a05fe590?auto=format&fit=crop&w=600&q=80" alt="Ancient Heritage Millet Strands">
                     </div>
-                    <div class="product-body">
-                        <div class="product-meta"><span>Fine Vermicelli</span><span>Pack of 2</span></div>
-                        <h3 class="product-title">Ancient Heritage Millet Noodles</h3>
-                        <p class="product-desc">Highly digestible, anti-inflammatory noodles constructed from ancient small millets. Perfect for sensitive systems and toddlers.</p>
-                        <div class="product-footer">
-                            <span class="product-price">$6.85</span>
-                            <button class="btn-cart">🛒</button>
+                    <div class="card-inner-body">
+                        <div class="card-meta-spec"><span>Fine Thread Capellini</span><span>2 Servings Pack</span></div>
+                        <h3 class="card-product-title">Ancient Hull Small-Millet Vermicelli</h3>
+                        <p class="card-product-desc">An anti-inflammatory, highly digestible fine-mesh noodle constructed from drought-resilient ancient panicum crops.</p>
+                        <div class="card-action-footer">
+                            <span class="card-price-tag">$6.80</span>
+                            <button class="interactive-cart-cta flex-center" title="Allocate Pack to Basket">🛒</button>
                         </div>
                     </div>
                 </div>
@@ -1345,137 +1286,137 @@
     </section>
 
     <!-- ==========================================================================
-       DETAILED NUTRITION DATA PLATFORM
+       LAB NUTRITIONAL TRANSPARENCY DEEP-DIVE STRIP
        ========================================================================== -->
-    <section id="nutrition" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Scientific Testing</span>
-                <h2 class="section-title">Transparent Nutrition Profiling</h2>
-                <p class="section-desc">Click on any core grain profile below to verify our lab-certified macronutrient data per 100-gram macro servings.</p>
+    <section class="section-padding" id="nutrition" style="background: rgba(141,110,99,0.02); border-top: 1px solid var(--border-heavy);">
+        <div class="wrapper">
+            <div style="text-align: center; margin-bottom: 56px;">
+                <span class="badge">Independent Lab Audited</span>
+                <h2 class="heading-lg">Macronutrient Array Profiles</h2>
+                <p class="desc-text" style="margin: 0 auto;">Review calibrated, laboratory-backed chemical mass evaluations executed per 100g dehydrated baseline portions.</p>
             </div>
 
-            <div class="nutrition-box">
-                <div class="nutrition-tabs">
-                    <button class="nut-tab-btn active" data-target="panel-egg">Egg Noodles</button>
-                    <button class="nut-tab-btn" data-target="panel-sweet">Sweet Potato</button>
-                    <button class="nut-tab-btn" data-target="panel-rice">Rice Noodles</button>
-                    <button class="nut-tab-btn" data-target="panel-buck">Buckwheat</button>
-                    <button class="nut-tab-btn" data-target="panel-millet">Millet Noodles</button>
+            <div class="nutrition-panel-wrapper">
+                <div class="nutrition-selector-strip">
+                    <button class="nut-strip-trigger active" data-target="panel-egg">Egg Noodles</button>
+                    <button class="nut-strip-trigger" data-target="panel-sweet">Sweet Potato</button>
+                    <button class="nut-strip-trigger" data-target="panel-rice">Brown Rice</button>
+                    <button class="nut-strip-trigger" data-target="panel-buck">Buckwheat Soba</button>
+                    <button class="nut-strip-trigger" data-target="panel-millet">Ancient Millet</button>
                 </div>
 
-                <!-- Panel 1: Egg -->
-                <div class="nut-content-panel active" id="panel-egg">
-                    <div class="nut-table-wrap">
-                        <h4>Egg Noodles Nutrients</h4>
-                        <table class="nutrition-table">
-                            <tr><td>Energy Calories</td><td>375 kcal</td></tr>
-                            <tr><td>Total Plant & Egg Protein</td><td>14.2 g</td></tr>
-                            <tr><td>Total Clean Fat Carbohydrates</td><td>3.1 g</td></tr>
-                            <tr><td>Saturated Lipids Fats</td><td>0.8 g</td></tr>
-                            <tr><td>Net Complex Carbs</td><td>68.5 g</td></tr>
-                            <tr><td>Raw Dietary Fibers</td><td>4.2 g</td></tr>
+                <!-- Profile Node 1: Egg -->
+                <div class="nutrient-display-board active" id="panel-egg">
+                    <div>
+                        <h3 class="heading-md" style="color: var(--primary-dark); font-size:1.8rem; margin-bottom:20px;">Golden Egg Mass Diagnostics</h3>
+                        <table class="nut-table-element">
+                            <tr><td>Energy Value</td><td>372 Kilocalories</td></tr>
+                            <tr><td>Crude Protein Mass</td><td>14.4 Grams</td></tr>
+                            <tr><td>Lipid Profile Fractions</td><td>3.4 Grams</td></tr>
+                            <tr><td>Available Carbohydrates</td><td>69.1 Grams</td></tr>
+                            <tr><td>Soluble Dietary Fibers</td><td>3.8 Grams</td></tr>
+                            <tr><td>Organic Sodium Content</td><td>12 Milligrams</td></tr>
                         </table>
-                        <div class="nut-features-list">
-                            <span class="nut-feat-tag">💪 Muscle Restoration</span>
-                            <span class="nut-feat-tag">🍳 Biotin Sourced</span>
-                            <span class="nut-feat-tag">🧬 Amino Complete</span>
+                        <div class="nut-highlight-badges">
+                            <span class="nut-badge">🧬 Full Amino Profile</span>
+                            <span class="nut-badge">🍳 Pastured Lipids</span>
+                            <span class="nut-badge">⚡ Sustained Glucose Arc</span>
                         </div>
                     </div>
-                    <div class="nut-visuals">
-                        <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=80" alt="Egg Macro Focus">
+                    <div class="nut-visual-banner-wrap">
+                        <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=80" alt="Egg Micro Details">
                     </div>
                 </div>
 
-                <!-- Panel 2: Sweet Potato -->
-                <div class="nut-content-panel" id="panel-sweet">
-                    <div class="nut-table-wrap">
-                        <h4>Sweet Potato Nutrients</h4>
-                        <table class="nutrition-table">
-                            <tr><td>Energy Calories</td><td>340 kcal</td></tr>
-                            <tr><td>Total Plant & Egg Protein</td><td>1.8 g</td></tr>
-                            <tr><td>Total Clean Fat Carbohydrates</td><td>0.1 g</td></tr>
-                            <tr><td>Saturated Lipids Fats</td><td>0.0 g</td></tr>
-                            <tr><td>Net Complex Carbs</td><td>84.2 g</td></tr>
-                            <tr><td>Raw Dietary Fibers</td><td>6.8 g</td></tr>
+                <!-- Profile Node 2: Sweet Potato -->
+                <div class="nutrient-display-board" id="panel-sweet">
+                    <div>
+                        <h3 class="heading-md" style="color: var(--primary-dark); font-size:1.8rem; margin-bottom:20px;">Sweet Potato Extract Elements</h3>
+                        <table class="nut-table-element">
+                            <tr><td>Energy Value</td><td>338 Kilocalories</td></tr>
+                            <tr><td>Crude Protein Mass</td><td>1.6 Grams</td></tr>
+                            <tr><td>Lipid Profile Fractions</td><td>0.1 Grams</td></tr>
+                            <tr><td>Available Carbohydrates</td><td>82.4 Grams</td></tr>
+                            <tr><td>Soluble Dietary Fibers</td><td>6.2 Grams</td></tr>
+                            <tr><td>Organic Sodium Content</td><td>28 Milligrams</td></tr>
                         </table>
-                        <div class="nut-features-list">
-                            <span class="nut-feat-tag">👁️ Vitamin A Rich</span>
-                            <span class="nut-feat-tag">📉 Zero Allergen Tracker</span>
-                            <span class="nut-feat-tag">⚡ Complex Carbs</span>
+                        <div class="nut-highlight-badges">
+                            <span class="nut-badge">👁️ High Carotenoid Pool</span>
+                            <span class="nut-badge">🚫 Zero Gliadin Inclusions</span>
+                            <span class="nut-badge">📉 Minimal Glycemic Shock</span>
                         </div>
                     </div>
-                    <div class="nut-visuals">
+                    <div class="nut-visual-banner-wrap">
                         <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=700&q=80" alt="Sweet Potato Focus">
                     </div>
                 </div>
 
-                <!-- Panel 3: Rice Noodles -->
-                <div class="nut-content-panel" id="panel-rice">
-                    <div class="nut-table-wrap">
-                        <h4>Brown Rice Nutrients</h4>
-                        <table class="nutrition-table">
-                            <tr><td>Energy Calories</td><td>355 kcal</td></tr>
-                            <tr><td>Total Plant & Egg Protein</td><td>7.5 g</td></tr>
-                            <tr><td>Total Clean Fat Carbohydrates</td><td>1.2 g</td></tr>
-                            <tr><td>Saturated Lipids Fats</td><td>0.2 g</td></tr>
-                            <tr><td>Net Complex Carbs</td><td>76.8 g</td></tr>
-                            <tr><td>Raw Dietary Fibers</td><td>5.1 g</td></tr>
+                <!-- Profile Node 3: Rice -->
+                <div class="nutrient-display-board" id="panel-rice">
+                    <div>
+                        <h3 class="heading-md" style="color: var(--primary-dark); font-size:1.8rem; margin-bottom:20px;">Brown Rice Bran Diagnostics</h3>
+                        <table class="nut-table-element">
+                            <tr><td>Energy Value</td><td>351 Kilocalories</td></tr>
+                            <tr><td>Crude Protein Mass</td><td>7.8 Grams</td></tr>
+                            <tr><td>Lipid Profile Fractions</td><td>1.4 Grams</td></tr>
+                            <tr><td>Available Carbohydrates</td><td>75.6 Grams</td></tr>
+                            <tr><td>Soluble Dietary Fibers</td><td>4.9 Grams</td></tr>
+                            <tr><td>Organic Sodium Content</td><td>5 Milligrams</td></tr>
                         </table>
-                        <div class="nut-features-list">
-                            <span class="nut-feat-tag">🌾 Manganese Loaded</span>
-                            <span class="nut-feat-tag">🧘 Stomach Easy Digest</span>
-                            <span class="nut-feat-tag">🚫 Low Sodium</span>
+                        <div class="nut-highlight-badges">
+                            <span class="nut-badge">🌾 Mineral Manganese Heavy</span>
+                            <span class="nut-badge">🧘 Gastric Clean Clearance</span>
+                            <span class="nut-badge">🛡️ Phytate Hydrolyzed</span>
                         </div>
                     </div>
-                    <div class="nut-visuals">
-                        <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=700&q=80" alt="Rice Focus">
+                    <div class="nut-visual-banner-wrap">
+                        <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=700&q=80" alt="Rice Analysis View">
                     </div>
                 </div>
 
-                <!-- Panel 4: Buckwheat -->
-                <div class="nut-content-panel" id="panel-buck">
-                    <div class="nut-table-wrap">
-                        <h4>Buckwheat Nutrients</h4>
-                        <table class="nutrition-table">
-                            <tr><td>Energy Calories</td><td>360 kcal</td></tr>
-                            <tr><td>Total Plant & Egg Protein</td><td>12.5 g</td></tr>
-                            <tr><td>Total Clean Fat Carbohydrates</td><td>2.4 g</td></tr>
-                            <tr><td>Saturated Lipids Fats</td><td>0.4 g</td></tr>
-                            <tr><td>Net Complex Carbs</td><td>69.1 g</td></tr>
-                            <tr><td>Raw Dietary Fibers</td><td>9.5 g</td></tr>
+                <!-- Profile Node 4: Buckwheat -->
+                <div class="nutrient-display-board" id="panel-buck">
+                    <div>
+                        <h3 class="heading-md" style="color: var(--primary-dark); font-size:1.8rem; margin-bottom:20px;">Autumn Buckwheat Matrix</h3>
+                        <table class="nut-table-element">
+                            <tr><td>Energy Value</td><td>346 Kilocalories</td></tr>
+                            <tr><td>Crude Protein Mass</td><td>12.9 Grams</td></tr>
+                            <tr><td>Lipid Profile Fractions</td><td>2.6 Grams</td></tr>
+                            <tr><td>Available Carbohydrates</td><td>67.2 Grams</td></tr>
+                            <tr><td>Soluble Dietary Fibers</td><td>9.2 Grams</td></tr>
+                            <tr><td>Organic Sodium Content</td><td>2 Milligrams</td></tr>
                         </table>
-                        <div class="nut-features-list">
-                            <span class="nut-feat-tag">❤️ Heart Healthy Rutin</span>
-                            <span class="nut-feat-tag">📊 Sustained Energy Curve</span>
-                            <span class="nut-feat-tag">🧪 Iron & Zinc heavy</span>
+                        <div class="nut-highlight-badges">
+                            <span class="nut-badge">❤️ Active Rutin Fractions</span>
+                            <span class="nut-badge">💪 Dense Magnesium Pool</span>
+                            <span class="nut-badge">🌱 True Prebiotic Medium</span>
                         </div>
                     </div>
-                    <div class="nut-visuals">
-                        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=700&q=80" alt="Buckwheat Soba Focus">
+                    <div class="nut-visual-banner-wrap">
+                        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=700&q=80" alt="Buckwheat Detail Surface">
                     </div>
                 </div>
 
-                <!-- Panel 5: Millet -->
-                <div class="nut-content-panel" id="panel-millet">
-                    <div class="nut-table-wrap">
-                        <h4>Millet Nutrients</h4>
-                        <table class="nutrition-table">
-                            <tr><td>Energy Calories</td><td>368 kcal</td></tr>
-                            <tr><td>Total Plant & Egg Protein</td><td>11.0 g</td></tr>
-                            <tr><td>Total Clean Fat Carbohydrates</td><td>3.5 g</td></tr>
-                            <tr><td>Saturated Lipids Fats</td><td>0.7 g</td></tr>
-                            <tr><td>Net Complex Carbs</td><td>71.2 g</td></tr>
-                            <tr><td>Raw Dietary Fibers</td><td>8.2 g</td></tr>
+                <!-- Profile Node 5: Millet -->
+                <div class="nutrient-display-board" id="panel-millet">
+                    <div>
+                        <h3 class="heading-md" style="color: var(--primary-dark); font-size:1.8rem; margin-bottom:20px;">Ancient Panicum Millet Metrics</h3>
+                        <table class="nut-table-element">
+                            <tr><td>Energy Value</td><td>363 Kilocalories</td></tr>
+                            <tr><td>Crude Protein Mass</td><td>11.2 Grams</td></tr>
+                            <tr><td>Lipid Profile Fractions</td><td>3.1 Grams</td></tr>
+                            <tr><td>Available Carbohydrates</td><td>70.4 Grams</td></tr>
+                            <tr><td>Soluble Dietary Fibers</td><td>8.5 Grams</td></tr>
+                            <tr><td>Organic Sodium Content</td><td>4 Milligrams</td></tr>
                         </table>
-                        <div class="nut-features-list">
-                            <span class="nut-feat-tag">🧪 Alkaline Base System</span>
-                            <span class="nut-feat-tag">🧠 Magnesium Heavy</span>
-                            <span class="nut-feat-tag">🌿 Powerful Phenols</span>
+                        <div class="nut-highlight-badges">
+                            <span class="nut-badge">🧬 Highly Alkalizing Load</span>
+                            <span class="nut-badge">🧠 Phenolic Acid Dense</span>
+                            <span class="nut-badge">🌾 Highly Digestible Cereal</span>
                         </div>
                     </div>
-                    <div class="nut-visuals">
-                        <img src="https://images.unsplash.com/photo-1516100882582-96c3a05fe590?auto=format&fit=crop&w=700&q=80" alt="Millet Focus">
+                    <div class="nut-visual-banner-wrap">
+                        <img src="https://images.unsplash.com/photo-1516100882582-96c3a05fe590?auto=format&fit=crop&w=700&q=80" alt="Millet Grain Analytics">
                     </div>
                 </div>
             </div>
@@ -1483,39 +1424,46 @@
     </section>
 
     <!-- ==========================================================================
-       PRODUCTION TIMELINE CRAFTING STAGES
+       DYNAMIC SERVINGS PORTION CALCULATOR WIDGET
        ========================================================================== -->
-    <section id="process" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">The Production Journey</span>
-                <h2 class="section-title">How We Handcraft Wholesome Excellence</h2>
-                <p class="section-desc">We combine historical, time-tested pasta-rolling methods with state-of-the-art clean-room sanitation systems.</p>
+    <section class="section-padding" id="calculator">
+        <div class="wrapper">
+            <div style="text-align: center; margin-bottom: 56px;">
+                <span class="badge">Kitchen Metric Optimization</span>
+                <h2 class="heading-lg">Dynamic Yield Portion Calculator</h2>
+                <p class="desc-text" style="margin: 0 auto;">Adjust your crop choices and targeted human body intakes below to compute expected baseline culinary metrics instantly.</p>
             </div>
 
-            <div class="timeline">
-                <div class="timeline-item timeline-left">
-                    <div class="timeline-card">
-                        <h3>01. Sourcing Grain Seeds</h3>
-                        <p class="section-desc" style="font-size: 14px;">Our grains are harvested from heritage fields that undergo routine organic soil verification inspections.</p>
+            <div class="calc-panel">
+                <div class="calc-inputs-grid">
+                    <div class="calc-group">
+                        <label class="calc-label" for="calcNoodleSelector">Select Target Noodle Substrate</label>
+                        <select class="calc-select" id="calcNoodleSelector">
+                            <option value="egg" data-cal="372" data-pro="14.4" data-fib="3.8">Golden Egg Strands</option>
+                            <option value="sweet" data-cal="338" data-pro="1.6" data-fib="6.2">Sweet Potato Glass</option>
+                            <option value="rice" data-cal="351" data-pro="7.8" data-fib="4.9">Brown Rice Tagliatelle</option>
+                            <option value="buck" data-cal="346" data-pro="12.9" data-fib="9.2">Autumn Buckwheat Soba</option>
+                            <option value="millet" data-cal="363" data-pro="11.2" data-fib="8.5">Ancient Millet Capellini</option>
+                        </select>
+                    </div>
+                    <div class="calc-group">
+                        <label class="calc-label" for="calcGramMassInput">Target Dehydrated Base Mass (Grams)</label>
+                        <input type="number" class="calc-input" id="calcGramMassInput" value="150" min="50" max="1000">
                     </div>
                 </div>
-                <div class="timeline-item timeline-right">
-                    <div class="timeline-card">
-                        <h3>02. Slow Stone-Milling</h3>
-                        <p class="section-desc" style="font-size: 14px;">Grains are crushed systematically using native stone mill shafts running cool to lock in heat-sensitive vitamin chains.</p>
+
+                <div class="calc-results-display">
+                    <div class="calc-metric">
+                        <h4 id="calcResultEnergy">558</h4>
+                        <p>Total Kilocalories</p>
                     </div>
-                </div>
-                <div class="timeline-item timeline-left">
-                    <div class="timeline-card">
-                        <h3>03. Vacuum Flour Kneading</h3>
-                        <p class="section-desc" style="font-size: 14px;">The composite flours are mixed delicately with purified spring well waters to structural micro-perfection.</p>
+                    <div class="calc-metric">
+                        <h4 id="calcResultProtein">21.6g</h4>
+                        <p>Available Protein Net</p>
                     </div>
-                </div>
-                <div class="timeline-item timeline-right">
-                    <div class="timeline-card">
-                        <h3>04. Ambient Air Dehydration</h3>
-                        <p class="section-desc" style="font-size: 14px;">Rather than using modern express flash ovens, our noodle threads are dried over 48 slow hours under monitored ambient conditions.</p>
+                    <div class="calc-metric">
+                        <h4 id="calcResultFiber">5.7g</h4>
+                        <p>Dietary Fiber Matrix</p>
                     </div>
                 </div>
             </div>
@@ -1523,59 +1471,105 @@
     </section>
 
     <!-- ==========================================================================
-       TESTIMONIALS SECTIONS
+       PRODUCTION TIMELINE HISTORICAL CHRONOLOGY STAGES
        ========================================================================== -->
-    <section id="testimonials" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Community Feedback</span>
-                <h2 class="section-title">Loved By Conscious Eaters Worldwide</h2>
+    <section class="section-padding" id="chronology" style="border-top: 1px solid var(--border-heavy);">
+        <div class="wrapper">
+            <div style="text-align: center; margin-bottom: 72px;">
+                <span class="badge">Tracing The Filament</span>
+                <h2 class="heading-lg">The Architecture Of Slow Crafting</h2>
+                <p class="desc-text" style="margin: 0 auto;">Our multi-stage production strategy respects historical methods, matching cool low-speed milling with structural ambient air-dehydration fields.</p>
             </div>
-            <div class="review-slider-container">
-                <div class="review-track" id="reviewTrack">
-                    <div class="review-card">
-                        <p class="review-quote">"The organic autumn buckwheat s0ba noodles completely altered our dinner rotations. The natural nutty profile requires minimal heavy sauces to shine."</p>
-                        <div class="review-user">
-                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Customer Profile" class="review-avatar">
-                            <div class="review-name">Elena Rostova<br><span class="review-role">Holistic Nutritionist</span></div>
+
+            <div class="production-chronology">
+                <div class="chronology-node node-left">
+                    <div class="chronology-inner-card">
+                        <h3>01. Soil and Varietal Auditing</h3>
+                        <p class="desc-text" style="font-size: 0.95rem; margin-bottom: 0;">We harvest exclusively from certified organic co-ops that run routine bio-chemical tests to ensure zero synthetic chemical residues or artificial fertilizers touch the soil.</p>
+                    </div>
+                </div>
+                <div class="chronology-node node-right">
+                    <div class="chronology-inner-card">
+                        <h3>02. Low-Speed Stone Milling</h3>
+                        <p class="desc-text" style="font-size: 0.95rem; margin-bottom: 0;">Raw whole grains are systematically processed through volcanic cold-stone mill discs. This configuration prevents frictional heat from breaking down fragile vital mineral chains or vitamins.</p>
+                    </div>
+                </div>
+                <div class="chronology-node node-left">
+                    <div class="chronology-inner-card">
+                        <h3>03. Purified Vacuum Hydration</h3>
+                        <p class="desc-text" style="font-size: 0.95rem; margin-bottom: 0;">The organic whole flours are blended under specific vacuum conditions using soft spring aquifer reserves, allowing water molecules to saturate the starch core naturally.</p>
+                    </div>
+                </div>
+                <div class="chronology-node node-right">
+                    <div class="chronology-inner-card">
+                        <h3>04. Ambient Slow Dehydration</h3>
+                        <p class="desc-text" style="font-size: 0.95rem; margin-bottom: 0;">Rather than using modern industrial flash ovens, our noodle strings dry over 48 hours at low temperatures, locking in fresh flavor and true nutritional integrity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       VERIFIED CUSTOMER REVIEWS INTERFACE SURFACE
+       ========================================================================== -->
+    <section class="section-padding" id="reviews" style="background: var(--bg-surface); border-top: 1px solid var(--border-heavy); border-bottom: 1px solid var(--border-heavy);">
+        <div class="wrapper">
+            <div class="reviews-slider-enclosure">
+                <div class="reviews-reel-track" id="reviewTrackElement">
+                    <!-- Slide 1 -->
+                    <div class="review-viewport-tile">
+                        <p class="review-quote-string">"The Autumn Buckwheat Soba noodles completely transformed our family menu rotation. The rich, earthy flavor profile stands entirely on its own, needing minimal heavy seasoning to shine."</p>
+                        <div class="review-user-profile-meta">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Customer Portrait" class="user-avatar-mask">
+                            <div class="user-meta-details">
+                                <h4 class="user-profile-name">Dr. Clara Rostova</h4>
+                                <p class="user-profile-sub">Clinical Nutritionist & Author</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="review-card">
-                        <p class="review-quote">"Finding truly clean, elastic gluten-free options felt near impossible until PureGrain. The sweet potato noodles are a weekly staple now."</p>
-                        <div class="review-user">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Customer Profile" class="review-avatar">
-                            <div class="review-name">Marcus Thorne<br><span class="review-role">Fitness Coach & Athlete</span></div>
+                    <!-- Slide 2 -->
+                    <div class="review-viewport-tile">
+                        <p class="review-quote-string">"Finding a gluten-free noodle with authentic elasticity and a firm, satisfying texture felt impossible until I discovered these purple sweet potato glass options. Truly exceptional culinary craft."</p>
+                        <div class="review-user-profile-meta">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Customer Portrait" class="user-avatar-mask">
+                            <div class="user-meta-details">
+                                <h4 class="user-profile-name">Marcus Thorne</h4>
+                                <p class="user-profile-sub">Elite Endurance Coach & Athlete</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="slider-controls">
-                    <div class="slider-dot active" data-slide="0"></div>
-                    <div class="slider-dot" data-slide="1"></div>
+                
+                <div class="slider-navigation-beads">
+                    <button class="nav-bead active" data-slide-index="0" title="Shift Frame 1"></button>
+                    <button class="nav-bead" data-slide-index="1" title="Shift Frame 2"></button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ==========================================================================
-       FAQ INTERACTIVE ACCORDION
+       INTERACTIVE ACCORDION FAQ SURFACE
        ========================================================================== -->
-    <section id="faq" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Common Enquiries</span>
-                <h2 class="section-title">Frequently Answered Queries</h2>
+    <section class="section-padding" id="faq">
+        <div class="wrapper">
+            <div style="text-align: center; margin-bottom: 56px;">
+                <span class="badge">Transparency Desk</span>
+                <h2 class="heading-lg">Frequently Clarified Logistics</h2>
             </div>
-            <div class="faq-max">
-                <div class="faq-item">
-                    <button class="faq-trigger">Are these noodles entirely safe for strictly celiac diagnostics? <span class="faq-icon">+</span></button>
-                    <div class="faq-content">
-                        <p>Yes. Our Sweet Potato, Brown Rice, and Ancient Millet formulations are isolated completely within a clean, separate facility to protect against cross-contamination.</p>
+
+            <div class="faq-accordion-container">
+                <div class="accordion-block">
+                    <button class="accordion-header-trigger">Are these noodle batches safe for individuals with verified severe celiac disease? <span>+</span></button>
+                    <div class="accordion-drawer-body">
+                        <p>Yes. Our Sweet Potato, Brown Rice, and Ancient Millet noodle arrays are mixed, extruded, and dried in an isolated, dedicated room. This configuration completely eliminates the risk of cross-contamination from gluten-bearing grains.</p>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-trigger">What is the standard shelflife duration for these noodles? <span class="faq-icon">+</span></button>
-                    <div class="faq-content">
-                        <p>Because we bypass synthetic chemical preservatives entirely, our slow air-dehydrated noodles stay stable for up to 12 months when stored inside cool, dark spaces.</p>
+                <div class="accordion-block">
+                    <button class="accordion-header-trigger">Why do these organic dry noodles have a stable 12-month shelf life without preservatives? <span>+</span></button>
+                    <div class="accordion-drawer-body">
+                        <p>Our slow 48-hour dehydration process carefully lowers the moisture level to a precise point. Removing active water content prevents microbial development naturally, keeping the noodles fresh for 12 months without the need for artificial chemicals.</p>
                     </div>
                 </div>
             </div>
@@ -1583,142 +1577,152 @@
     </section>
 
     <!-- ==========================================================================
-       CONTACT HUB & RESERVATION PIPELINE
+       SECURE CONTACT DISPATCH LAYER
        ========================================================================== -->
-    <section id="contact" class="section">
-        <div class="container contact-wrapper">
-            <div class="contact-info-block">
+    <section class="section-padding" id="contact" style="background: rgba(46,125,50,0.02); border-top: 1px solid var(--border-heavy);">
+        <div class="wrapper contact-workspace-split">
+            <div class="contact-channel-directory">
                 <div>
-                    <span class="section-tag">Get In Touch</span>
-                    <h2 class="section-title">Connect With Our Organic Hub</h2>
-                    <p class="section-desc">Have retail questions, wholesale distribution interests, or custom catering requests? Drop a ticket or visit our flagship warehouse distribution center.</p>
+                    <span class="badge">Corporate Relations</span>
+                    <h2 class="heading-lg">Connect With Our Extraction Hub</h2>
+                    <p class="desc-text">Have retail logistics questions, wholesale supply inquiries, or custom community food project specifications? Drop your notes directly into our secure pipeline.</p>
                 </div>
-                <div class="info-card">
-                    <div class="info-icon">📍</div>
-                    <div class="info-text"><h3>Headquarters</h3><p>742 Pure Grain Way, Eco-District, CA 94016</p></div>
+                <div class="channel-card-node">
+                    <div class="channel-card-icon flex-center">📍</div>
+                    <div class="channel-card-details">
+                        <h4>Headquarters Operations</h4>
+                        <p>742 Pure Grain Way, Eco-Industrial Precinct, CA 94016</p>
+                    </div>
                 </div>
-                <div class="info-card">
-                    <div class="info-icon">📞</div>
-                    <div class="info-text"><h3>Direct Hotline Support</h3><p>+1 (800) 555-ORGANIC</p></div>
-                </div>
-                <div class="map-mockup">
-                    <div style="padding: 30px; text-align: center; color: var(--text-muted);">
-                        <p>🗺️ Interactive Map View Locked</p>
-                        <p style="font-size:12px; margin-top:10px;">Showing: Eco-District Plaza 1</p>
+                <div class="channel-card-node">
+                    <div class="channel-card-icon flex-center">✉️</div>
+                    <div class="channel-card-details">
+                        <h4>Secure Email Routing</h4>
+                        <p>logistics@noodlecraftorganics.cdn</p>
                     </div>
                 </div>
             </div>
-            <div class="contact-form">
-                <form id="submissionForm" onsubmit="event.preventDefault(); alert('Inquiry recorded successfully!');">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label class="section-desc" style="font-size:13px; font-weight:600;">Full Legal Name</label>
-                            <input type="text" class="form-control" placeholder="John Doe" required>
+
+            <div class="dispatch-form-panel">
+                <form id="secureDispatchForm" onsubmit="event.preventDefault(); alert('Transmission Authenticated and Distributed Securely.');">
+                    <div class="form-structural-row">
+                        <div class="field-group">
+                            <label class="calc-label" style="font-size:0.75rem;">Full Identity Name</label>
+                            <input type="text" class="input-element-control" placeholder="Jane Doe" required>
                         </div>
-                        <div class="form-group">
-                            <label class="section-desc" style="font-size:13px; font-weight:600;">Email Target</label>
-                            <input type="email" class="form-control" placeholder="john@example.com" required>
+                        <div class="field-group">
+                            <label class="calc-label" style="font-size:0.75rem;">Contact Email Target</label>
+                            <input type="email" class="input-element-control" placeholder="jane@domain.com" required>
                         </div>
-                        <div class="form-group form-group-full">
-                            <label class="section-desc" style="font-size:13px; font-weight:600;">Subject Topic</label>
-                            <input type="text" class="form-control" placeholder="Wholesale Partnerships Request" required>
+                        <div class="field-group field-full-span">
+                            <label class="calc-label" style="font-size:0.75rem;">Subject Vector Line</label>
+                            <input type="text" class="input-element-control" placeholder="Bulk Commercial Inquiry Allocation" required>
                         </div>
-                        <div class="form-group form-group-full">
-                            <label class="section-desc" style="font-size:13px; font-weight:600;">Detailed Message Body</label>
-                            <textarea class="form-control" placeholder="Write your core request queries down..." required></textarea>
+                        <div class="field-group field-full-span">
+                            <label class="calc-label" style="font-size:0.75rem;">Detailed Message Payload</label>
+                            <textarea class="input-element-control" placeholder="Type structural supply demands or testing queries here..." required></textarea>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width:100%;">Transmit Message Form Securely</button>
+                    <button type="submit" class="btn-core btn-fill" style="width: 100%; border-radius: var(--radius-sm);">Transmit Encrypted Package</button>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- ==========================================================================
-       PREMIUM SYSTEM FOOTER
+       ENTERPRISE CONTEXT CORE FOOTER
        ========================================================================== -->
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <div class="logo"><span>🌿</span><strong>PureGrain</strong></div>
-                <p>Nurturing multi-generational families with high-integrity, completely clean organic grain solutions across generations.</p>
-                <div class="footer-socials">
-                    <a href="#" class="social-icon">𝕏</a>
-                    <a href="#" class="social-icon">📸</a>
-                    <a href="#" class="social-icon">💼</a>
+    <footer class="master-footer">
+        <div class="wrapper footer-columns-matrix">
+            <div class="footer-brand-summary">
+                <h3 class="font-display" style="color:var(--primary-light); font-size:1.5rem; margin-bottom:16px;">🍜 NoodleCraft</h3>
+                <p>Nurturing multi-generational well-being through clean, organic food practices that protect and respect natural agricultural cycles.</p>
+                <div class="footer-social-deck">
+                    <a href="#" class="deck-social-anchor flex-center">𝕏</a>
+                    <a href="#" class="deck-social-anchor flex-center">📸</a>
+                    <a href="#" class="deck-social-anchor flex-center">💼</a>
                 </div>
             </div>
             <div>
-                <h4 class="footer-heading">Product Offerings</h4>
-                <ul class="footer-links" style="display:flex; flex-direction:column; gap:12px;">
-                    <li><a href="#menu" class="footer-link">Golden Egg Noodles</a></li>
-                    <li><a href="#menu" class="footer-link">Sweet Potato Glass Noodles</a></li>
-                    <li><a href="#menu" class="footer-link">Whole Brown Rice Pasta</a></li>
-                    <li><a href="#menu" class="footer-link">Japanese Soba Buckwheat</a></li>
-                    <li><a href="#menu" class="footer-link">Ancient Millet Vermicelli</a></li>
+                <h4 class="footer-column-headline">Product Lines</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#catalog">Golden Egg Noodles</a></li>
+                    <li><a href="#catalog">Sweet Potato Glass</a></li>
+                    <li><a href="#catalog">Sprouted Rice Strands</a></li>
+                    <li><a href="#catalog">Earthy Buckwheat Soba</a></li>
+                    <li><a href="#catalog">Ancient Heritage Millet</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="footer-heading">Corporate Traceability</h4>
-                <ul class="footer-links" style="display:flex; flex-direction:column; gap:12px;">
-                    <li><a href="#about" class="footer-link">Farm Cooperatives</a></li>
-                    <li><a href="#process" class="footer-link">Stone-Milling Tech</a></li>
-                    <li><a href="#nutrition" class="footer-link">Lab Macro Validation</a></li>
-                    <li><a href="#" class="footer-link">Sustainability Reports</a></li>
+                <h4 class="footer-column-headline">Traceability Desk</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#chronology">Co-op Sourcing Map</a></li>
+                    <li><a href="#nutrition">Stone-Milling Criteria</a></li>
+                    <li><a href="#nutrition">Lab Assay Records</a></li>
+                    <li><a href="#faq">Preservative Matrix FAQ</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="footer-heading">Join Our Ecosystem</h4>
-                <p class="section-desc" style="color:#aaa; font-size:13px; margin-bottom:15px;">Receive direct updates regarding regional harvests, seasonal menus, and unique health optimization strategies.</p>
-                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed to ecosystem journal.');">
-                    <input type="email" class="newsletter-input" placeholder="Enter clean email address..." required>
-                    <button type="submit" class="btn btn-primary" style="padding:12px 20px;">Join</button>
+                <h4 class="footer-column-headline">Ecosystem Journal</h4>
+                <p style="color:#8A948D; font-size:0.85rem; margin-bottom:16px;">Sign up to receive field harvest data, fresh product releases, and updates on organic farming practices directly in your inbox.</p>
+                <form class="newsletter-input-group" onsubmit="event.preventDefault(); alert('Journal subscription successful.');">
+                    <input type="email" class="newsletter-field" placeholder="Enter secure email address..." required>
+                    <button type="submit" class="btn-core btn-fill" style="padding:12px 20px; border-radius: var(--radius-sm);">Join</button>
                 </form>
             </div>
         </div>
-        <div class="container footer-bottom">
-            <p>&copy; 2026 PureGrain Organics Inc. All individual legal protections reserved carefully.</p>
-            <p>Terms of Soil Compliance &bull; Privacy Security Vault</p>
+        <div class="wrapper footer-base-row">
+            <p>&copy; 2026 NoodleCraft Organics Industrial Holding Group. All legal rights reserved.</p>
+            <p>Soil Compliance Metrics &bull; Privacy Security Vault Protocol</p>
         </div>
     </footer>
 
     <!-- ==========================================================================
-       VANILLA JAVASCRIPT SYSTEM ENGINE
+       VANILLA JAVASCRIPT LOGIC ENGINE
        ========================================================================== -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Dark Mode Infrastructure Toggle
-            const themeBtn = document.getElementById("themeToggle");
-            themeBtn.addEventListener("click", () => {
-                const activeTheme = document.documentElement.getAttribute("data-theme");
-                if (activeTheme === "dark") {
-                    document.documentElement.removeAttribute("data-theme");
+            
+            // 1. Light/Dark Theme Engine
+            const themeToggle = document.getElementById("themeEngineToggle");
+            themeToggle.addEventListener("click", () => {
+                const globalThemeState = document.documentElement.getAttribute("data-theme");
+                if (globalThemeState === "dark") {
+                    document.documentElement.setAttribute("data-theme", "light");
                 } else {
                     document.documentElement.setAttribute("data-theme", "dark");
                 }
             });
 
-            // Mobile Navigation Toggle
-            const menuToggle = document.getElementById("menuToggle");
-            const navMenu = document.getElementById("navMenu");
-            menuToggle.addEventListener("click", () => {
-                navMenu.classList.toggle("active");
-                const spans = menuToggle.querySelectorAll("span");
-                spans.forEach(s => s.classList.toggle("open"));
+            // 2. Sticky Header Adaptive Alpha
+            const headerElement = document.getElementById("globalHeader");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 50) {
+                    headerElement.classList.add("scrolled");
+                } else {
+                    headerElement.classList.remove("scrolled");
+                }
             });
 
-            // Menu Tab Categorization Filtering Engine
-            const tabButtons = document.querySelectorAll(".tab-btn");
-            const productCards = document.querySelectorAll(".product-card");
+            // 3. Mobile Navigation Open/Close
+            const mobileMenuTrigger = document.getElementById("mobileMenuTrigger");
+            const globalNav = document.getElementById("globalNav");
+            mobileMenuTrigger.addEventListener("click", () => {
+                globalNav.classList.toggle("open");
+            });
 
-            tabButtons.forEach(btn => {
-                btn.addEventListener("click", () => {
-                    tabButtons.forEach(b => b.classList.remove("active"));
-                    btn.classList.add("active");
-                    const targetCategory = btn.getAttribute("data-filter");
-
-                    productCards.forEach(card => {
-                        if (targetCategory === "all" || card.getAttribute("data-category") === targetCategory) {
+            // 4. Product Menu Filter Matrix
+            const filterChips = document.querySelectorAll(".filter-chip");
+            const showcaseCards = document.querySelectorAll(".noodle-showcase-card");
+            
+            filterChips.forEach(chip => {
+                chip.addEventListener("click", () => {
+                    filterChips.forEach(c => c.classList.remove("active"));
+                    chip.classList.add("active");
+                    
+                    const targetedFilter = chip.getAttribute("data-filter");
+                    showcaseCards.forEach(card => {
+                        if (targetedFilter === "all" || card.getAttribute("data-category") === targetedFilter) {
                             card.style.display = "flex";
                         } else {
                             card.style.display = "none";
@@ -1727,47 +1731,75 @@
                 });
             });
 
-            // Nutrition Information Matrix Tab System
-            const nutTabs = document.querySelectorAll(".nut-tab-btn");
-            const nutPanels = document.querySelectorAll(".nut-content-panel");
+            // 5. Nutritional Tab Switching System
+            const nutTriggers = document.querySelectorAll(".nut-strip-trigger");
+            const nutrientBoards = document.querySelectorAll(".nutrient-display-board");
 
-            nutTabs.forEach(tab => {
-                tab.addEventListener("click", () => {
-                    nutTabs.forEach(t => t.classList.remove("active"));
-                    nutPanels.forEach(p => p.classList.remove("active"));
+            nutTriggers.forEach(trigger => {
+                trigger.addEventListener("click", () => {
+                    nutTriggers.forEach(t => t.classList.remove("active"));
+                    nutrientBoards.forEach(b => b.classList.remove("active"));
 
-                    tab.classList.add("active");
-                    const assignedPanel = tab.getAttribute("data-target");
-                    document.getElementById(assignedPanel).add("active");
+                    trigger.classList.add("active");
+                    const targetedPanelId = trigger.getAttribute("data-target");
+                    document.getElementById(targetedPanelId).classList.add("active");
+                    
+                    // Force update matching inputs in calculator for cohesive experience
+                    const optionValueMap = {
+                        'panel-egg': 'egg', 'panel-sweet': 'sweet', 'panel-rice': 'rice', 'panel-buck': 'buck', 'panel-millet': 'millet'
+                    };
+                    document.getElementById("calcNoodleSelector").value = optionValueMap[targetedPanelId];
+                    executeYieldCalculations();
                 });
             });
 
-            // Testimonial Horizontal Slider System
-            const dots = document.querySelectorAll(".slider-dot");
-            const track = document.getElementById("reviewTrack");
+            // 6. Servings Matrix Calculations
+            const calcSelector = document.getElementById("calcNoodleSelector");
+            const calcMassInput = document.getElementById("calcGramMassInput");
+            
+            function executeYieldCalculations() {
+                const designatedOption = calcSelector.options[calcSelector.selectedIndex];
+                const baseCal = parseFloat(designatedOption.getAttribute("data-cal"));
+                const basePro = parseFloat(designatedOption.getAttribute("data-pro"));
+                const baseFib = parseFloat(designatedOption.getAttribute("data-fib"));
+                
+                const processingMass = parseFloat(calcMassInput.value) || 0;
+                const dynamicMultiplier = processingMass / 100;
 
-            dots.forEach(dot => {
-                dot.addEventListener("click", () => {
-                    dots.forEach(d => d.classList.remove("active"));
-                    dot.classList.add("active");
-                    const index = parseInt(dot.getAttribute("data-slide"));
-                    track.style.transform = `translateX(-${index * 100}%)`;
+                document.getElementById("calcResultEnergy").textContent = Math.round(baseCal * dynamicMultiplier);
+                document.getElementById("calcResultProtein").textContent = (basePro * dynamicMultiplier).toFixed(1) + "g";
+                document.getElementById("calcResultFiber").textContent = (baseFib * dynamicMultiplier).toFixed(1) + "g";
+            }
+
+            calcSelector.addEventListener("change", executeYieldCalculations);
+            calcMassInput.addEventListener("input", executeYieldCalculations);
+            executeYieldCalculations(); // Initial execution balance
+
+            // 7. Review Carousel Motion Slider
+            const reviewBeads = document.querySelectorAll(".nav-bead");
+            const reviewReelTrack = document.getElementById("reviewTrackElement");
+
+            reviewBeads.forEach(bead => {
+                bead.addEventListener("click", () => {
+                    reviewBeads.forEach(b => b.classList.remove("active"));
+                    bead.classList.add("active");
+                    const targetedIndex = parseInt(bead.getAttribute("data-slide-index"));
+                    reviewReelTrack.style.transform = `translateX(-${targetedIndex * 100}%)`;
                 });
             });
 
-            // Accordion Collapse Logic Engine
-            const faqTriggers = document.querySelectorAll(".faq-trigger");
-            faqTriggers.forEach(trig => {
-                trig.addEventListener("click", () => {
-                    const item = trig.parentElement;
-                    item.classList.toggle("active");
-                    const body = item.querySelector(".faq-content");
-                    if (item.classList.contains("active")) {
-                        body.style.maxHeight = body.scrollHeight + "px";
-                        trig.querySelector(".faq-icon").textContent = "−";
+            // 8. Collapsible Accordion Drawer System
+            const accordionTriggers = document.querySelectorAll(".accordion-header-trigger");
+            accordionTriggers.forEach(trigger => {
+                trigger.addEventListener("click", () => {
+                    const blockParent = trigger.parentElement;
+                    const drawerContent = blockParent.querySelector(".accordion-drawer-body");
+                    
+                    blockParent.classList.toggle("open");
+                    if (blockParent.classList.contains("open")) {
+                        drawerContent.style.maxHeight = drawerContent.scrollHeight + "px";
                     } else {
-                        body.style.maxHeight = "0";
-                        trig.querySelector(".faq-icon").textContent = "+";
+                        drawerContent.style.maxHeight = "0px";
                     }
                 });
             });
